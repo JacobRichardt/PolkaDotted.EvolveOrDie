@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace PolkaDotted.EvolveOrDie
+namespace PolkaDotted.EvolveOrDie.World
 {
 	public class View
 	{

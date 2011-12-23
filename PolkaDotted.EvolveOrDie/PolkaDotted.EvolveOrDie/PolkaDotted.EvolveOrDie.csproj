@@ -72,16 +72,21 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameObjects\Descesion.cs" />
-    <Compile Include="GameObjects\IGameObject.cs" />
-    <Compile Include="GameObjects\Organism.cs" />
-    <Compile Include="GameObjects\Tile.cs" />
-    <Compile Include="Level.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="EvolveOrDieGame.cs" />
-    <Compile Include="Sprite.cs" />
-    <Compile Include="View.cs" />
+    <Compile Include="World\Organism\Decisions\Actions\Direction.cs" />
+    <Compile Include="World\Organism\Decisions\Actions\IAction.cs" />
+    <Compile Include="World\Organism\Decisions\Actions\Move.cs" />
+    <Compile Include="World\Organism\Decisions\Conditions\ICondition.cs" />
+    <Compile Include="World\Organism\Decisions\Conditions\IsTilePassable.cs" />
+    <Compile Include="World\Organism\Decisions\Decision.cs" />
+    <Compile Include="World\Organism\Organism.cs" />
+    <Compile Include="World\Tile.cs" />
+    <Compile Include="World\TurboHandler.cs" />
+    <Compile Include="World\WorldCoordinate.cs" />
+    <Compile Include="World\View.cs" />
+    <Compile Include="World\World.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

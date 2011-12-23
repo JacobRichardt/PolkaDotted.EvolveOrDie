@@ -9,12 +9,12 @@ namespace PolkaDotted.EvolveOrDie
 	/// </summary>
 	public class EvolveOrDieGame : Game
 	{
-		private GraphicsDeviceManager _Graphics;
+		private readonly GraphicsDeviceManager _Graphics;
 		private SpriteBatch _SpriteBatch;
 
 		private SpriteFont _DefaultFont;
 
-		private Level _Level;
+		private World.World _World;
 
 		public EvolveOrDieGame()
 		{
@@ -30,11 +30,14 @@ namespace PolkaDotted.EvolveOrDie
 		/// </summary>
 		protected override void Initialize()
 		{
-			_Level = new Level(GraphicsDevice);
-
 			IsFixedTimeStep = false;
 			_Graphics.SynchronizeWithVerticalRetrace = false;
+			Window.Title = "Evolve or Die";
 			_Graphics.ApplyChanges();
+
+			_World = new World.World();
+
+			_World.Initialize(GraphicsDevice.Viewport);
 
 			base.Initialize();
 		}
@@ -49,7 +52,9 @@ namespace PolkaDotted.EvolveOrDie
 
 			_DefaultFont = Content.Load<SpriteFont>("Fonts/Default");
 
-			_Level.LoadContent(Content, _SpriteBatch);
+			_World.Load(Content, _SpriteBatch);
+
+			base.LoadContent();
 		}
 
 		/// <summary>
@@ -68,7 +73,7 @@ namespace PolkaDotted.EvolveOrDie
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Update(GameTime gameTime)
 		{
-			_Level.Update(gameTime);
+			_World.Update(gameTime);
 
 			base.Update(gameTime);
 		}
@@ -83,7 +88,7 @@ namespace PolkaDotted.EvolveOrDie
 
 			_SpriteBatch.Begin();
 
-			_Level.Draw(gameTime);
+			_World.Draw(gameTime);
 
 			_SpriteBatch.DrawString(_DefaultFont, string.Format("FPS: {0}", Math.Round(1 / gameTime.ElapsedGameTime.TotalSeconds)), Vector2.Zero, Color.Green);
 

@@ -1,4 +1,5 @@
 Content\Fonts\Default.xnb
 Content\Organism.xnb
-Content\SafeTile.xnb
-Content\DangerTile.xnb
+Content\BlockedTile.xnb
+Content\NormalTile.xnb
+Content\Resource.xnb
