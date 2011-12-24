@@ -4,8 +4,8 @@ namespace PolkaDotted.EvolveOrDie.World.Organism.Decisions.Conditions
 {
 	public class IsTilePassable : ICondition
 	{
-		private int _X;
-		private int _Y;
+		private readonly int _X;
+		private readonly int _Y;
 		
 		public IsTilePassable(int x, int y)
 		{
